@@ -2,6 +2,7 @@
   <div>
     <h1>Simple Imgur</h1>
     <Navbar />
+    <router-view></router-view>
   </div>
 </template>
 

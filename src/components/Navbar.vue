@@ -1,6 +1,8 @@
 <template>
   <ul>
-    <li>Login</li>
+    <router-link to="/login">
+      
+    </router-link> 
   </ul>
 </template>
 
