@@ -20,8 +20,6 @@ export default {
     if (window.location.hash === "") {
       this.login();
     } else {
-      // Passing current url which has the actual token to be used
-      console.log(window.location.hash);
       this.finalizeLogin();
       this.$router.push('gallery');
     }

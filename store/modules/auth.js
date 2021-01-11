@@ -16,6 +16,9 @@ const actions = {
   login() {
     api.login();
   },
+  logout({ commit }) {
+    commit("setToken", null);
+  },
   finalizeLogin({ commit }) {
     // Take current url
     let url = window.location.hash.replace("#", "");
