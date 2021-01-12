@@ -1,4 +1,3 @@
-// import { URLSearchParams } from "url";
 import api from "../../api/helper";
 
 // State
@@ -20,13 +19,16 @@ const actions = {
     commit("setToken", null);
   },
   finalizeLogin({ commit }) {
-    // Take current url
+    // Take current url, remove the "#" at the beginning
     let url = window.location.hash.replace("#", "");
+    // Pass that into a URLSearchParams instance
     let usp = new URLSearchParams(url);
     let token;
+    // Looping over search params to get the access_token
     for (let [key, value] of usp) {
       if (key === "access_token") {
         token = value;
+        break;
       }
     }
     commit("setToken", token);

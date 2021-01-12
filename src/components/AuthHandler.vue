@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Handling token... Please wait </h1>
-    <h2>{{ token }}</h2>
   </div>
 </template>
 
