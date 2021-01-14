@@ -17,6 +17,7 @@ const actions = {
   },
   logout({ commit }) {
     commit("setToken", null);
+    localStorage.removeItem("token");
   },
   finalizeLogin({ commit }) {
     // Take current url, remove the "#" at the beginning
@@ -32,6 +33,8 @@ const actions = {
       }
     }
     commit("setToken", token);
+    // Store token in local storage
+    localStorage.setItem("token", token);
   },
 };
 
