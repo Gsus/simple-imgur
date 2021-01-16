@@ -4,18 +4,15 @@
 </template>
 
 <script>
-import helper from "../../api/helper";
+// import api from "../../api/helper";
 
 export default {
   name: 'Gallery',
-  data() {
-    return {
-      token: this.$store.state.auth.token
-    } 
-  },
   created() {
+    // This action is in the "images.js" module, btw
+    this.$store.dispatch('fetchImgs');
     // Get images from the current user's account
-    helper.getImgs(this.token);
+    // api.fetchImgs(this.token);
   }
 }
 </script>

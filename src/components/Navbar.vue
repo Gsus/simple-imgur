@@ -5,9 +5,19 @@
         <router-link to="/login">Login
         </router-link>
       </li>
-      <li v-else @click="logout">
-        <a href="#">Logout</a>
-      </li>
+      <div v-else>
+        <li @click="logout">
+          <a href="#">Logout</a>
+        </li>
+        <li>
+          <router-link to="/gallery">Gallery
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/upload">Upload form
+          </router-link>
+        </li>
+      </div>
     </ul>
   </nav>
 </template>

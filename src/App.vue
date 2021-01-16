@@ -18,7 +18,7 @@ export default {
     if (localStorage.getItem("token")) {
       let token = localStorage.getItem("token");
       this.$store.commit('setToken', token);
-      this.$router.push('/gallery');
+      if (this.$route.path !== "/gallery") this.$router.push('/gallery');
     }
   }
 }

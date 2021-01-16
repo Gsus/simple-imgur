@@ -10,6 +10,13 @@ const getters = {
   getToken: (state) => state.token,
 };
 
+// Mutations
+const mutations = {
+  setToken(state, token) {
+    state.token = token;
+  },
+};
+
 // Actions
 const actions = {
   login() {
@@ -35,13 +42,6 @@ const actions = {
     commit("setToken", token);
     // Store token in local storage
     localStorage.setItem("token", token);
-  },
-};
-
-// Mutations
-const mutations = {
-  setToken(state, token) {
-    state.token = token;
   },
 };
 

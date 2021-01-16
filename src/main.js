@@ -4,6 +4,7 @@ import store from "../store/";
 import App from "./App.vue";
 import AuthHandler from "./components/AuthHandler";
 import Gallery from "./components/Gallery";
+import UploadForm from "./components/UploadForm";
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,7 @@ const router = new VueRouter({
   routes: [
     { path: "/login", component: AuthHandler },
     { path: "/gallery", component: Gallery },
+    { path: "/upload", component: UploadForm },
   ],
 });
 

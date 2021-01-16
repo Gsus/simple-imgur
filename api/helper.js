@@ -7,16 +7,21 @@ export default {
   login() {
     window.location = `${baseUrl}client_id=${CLIENT_ID}&response_type=token`;
   },
-  getImgs(token) {
+  async fetchImgs(token) {
     // GET imgs from user (you can use "me" as {{ username }} if authenticated)
     // https://api.imgur.com/3/account/{{username}}/images/{{page}}
 
-    fetch("https://api.imgur.com/3/account/me/images/", {
+    const res = await fetch("https://api.imgur.com/3/account/me/images/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
-      .then((res) => res.json())
-      .then((images) => console.log(images.data));
+    });
+    // This will return an object with props "data", "success", and "status"
+    const imagesData = await res.json();
+    // We only care about the "data",
+    // since it has the array of images (in the form of objects)
+    console.log("fr helper, imagesData:", imagesData);
+    console.log("fr helper, imagesData.data:", imagesData.data);
+    return imagesData.data;
   },
 };
