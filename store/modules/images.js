@@ -5,9 +5,7 @@ const state = {
 };
 
 const getters = {
-  getAllImgs(state) {
-    return state.imgs;
-  },
+  allImgs: (state) => state.imgs,
 };
 
 const mutations = {
@@ -24,16 +22,23 @@ const actions = {
     const { token } = rootState.auth;
     let imgsData = await api.fetchImgs(token);
 
-    // Get only the info we want from imgsData. (link, name)
+    // Get only the info we want from imgsData. (link, name, id)
     let relevantImgsData = [];
     for (let img of imgsData) {
       relevantImgsData.push({
         name: img.name,
         link: img.link,
+        id: img.id,
       });
     }
     // Set those imgs to the state
     commit("setImgs", relevantImgsData);
+  },
+  async uploadImgs({ rootState }) {
+    const { token } = rootState.auth;
+    let res = await api.uploadImgs(token);
+    console.log(res);
+    // ......
   },
 };
 

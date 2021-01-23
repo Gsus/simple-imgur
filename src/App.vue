@@ -15,10 +15,20 @@ export default {
     Navbar
   },
   created() {
-    if (localStorage.getItem("token")) {
-      let token = localStorage.getItem("token");
+    // If there's a token in local storage...
+    if (localStorage.getItem("imgur_token")) {
+      // Get token from local storage
+      let token = localStorage.getItem("imgur_token");
+      // Put it in our state
       this.$store.commit('setToken', token);
-      if (this.$route.path !== "/gallery") this.$router.push('/gallery');
+      // If not already in /gallery, go to that route
+      // if (this.$route.path !== "/gallery") this.$router.push('/gallery');
+    }
+  },
+  mounted() {
+    // If there isn't a token in local storage... go to Home, where you can login
+    if (!localStorage.getItem("imgur_token")) {
+      this.$router.push('/');
     }
   }
 }

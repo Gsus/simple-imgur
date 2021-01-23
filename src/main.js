@@ -12,7 +12,7 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/login", component: AuthHandler },
-    { path: "/gallery", component: Gallery },
+    { path: "/", component: Gallery },
     { path: "/upload", component: UploadForm },
   ],
 });

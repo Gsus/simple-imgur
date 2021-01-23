@@ -20,8 +20,10 @@ export default {
     const imagesData = await res.json();
     // We only care about the "data",
     // since it has the array of images (in the form of objects)
-    console.log("fr helper, imagesData:", imagesData);
-    console.log("fr helper, imagesData.data:", imagesData.data);
     return imagesData.data;
+  },
+  async uploadImgs(token) {
+    console.log(token);
+    // Make requests
   },
 };

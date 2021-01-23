@@ -9,18 +9,13 @@ import { mapActions } from "vuex";
 
 export default {
   name: 'AuthHandler',
-  computed: {
-    token() {
-      return this.$store.state.auth.token;
-    }
-  },
   methods: mapActions(['finalizeLogin', 'login']),
   created() {
     if (window.location.hash === "") {
       this.login();
     } else {
       this.finalizeLogin();
-      this.$router.push('gallery');
+      this.$router.push('/');
     }
   }
 }

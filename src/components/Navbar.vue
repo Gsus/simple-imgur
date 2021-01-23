@@ -1,7 +1,7 @@
 <template>
   <nav id="#navbar">
     <ul>
-      <li v-if="!token">
+      <li v-if="!isLoggedIn">
         <router-link to="/login">Login
         </router-link>
       </li>
@@ -10,7 +10,7 @@
           <a href="#">Logout</a>
         </li>
         <li>
-          <router-link to="/gallery">Gallery
+          <router-link to="/">Gallery
           </router-link>
         </li>
         <li>
@@ -23,13 +23,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: 'Navbar',
-  computed: {
-    token() {
-      return this.$store.state.auth.token;
-    }
-  },
+  computed: mapGetters(['isLoggedIn']),
   methods: {
     logout() {
       this.$store.dispatch('logout');
