@@ -18,8 +18,8 @@ export default {
   computed: mapGetters(['isLoggedIn', 'allImgs']),
   created() {
     // This action is in the "images.js" module, btw.
-    // Get images from the current user's account
-    this.$store.dispatch('fetchImgs');
+    // Get images from the current user's account (if logged in)
+    if (this.isLoggedIn) this.$store.dispatch('fetchImgs');
   }
 }
 </script>

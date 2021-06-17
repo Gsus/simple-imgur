@@ -21,13 +21,11 @@ export default {
       let token = localStorage.getItem("imgur_token");
       // Put it in our state
       this.$store.commit('setToken', token);
-      // If not already in /gallery, go to that route
-      // if (this.$route.path !== "/gallery") this.$router.push('/gallery');
     }
   },
   mounted() {
     // If there isn't a token in local storage... go to Home, where you can login
-    if (!localStorage.getItem("imgur_token")) {
+    if (!localStorage.getItem("imgur_token") && this.$router.currentRoute.path !== '/') {
       this.$router.push('/');
     }
   }

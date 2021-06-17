@@ -1,4 +1,5 @@
 import api from "../../api/helper";
+import { router } from "../../src/main";
 
 const state = {
   imgs: [],
@@ -34,10 +35,13 @@ const actions = {
     // Set those imgs to the state
     commit("setImgs", relevantImgsData);
   },
-  async uploadImgs({ rootState }) {
+  async uploadImgs({ rootState }, images) {
+    // Get token
     const { token } = rootState.auth;
-    let res = await api.uploadImgs(token);
-    console.log(res);
+    // Call API module to upload the images
+    await api.uploadImgs(images, token);
+    // Redirect to Gallery component
+    router.push("/");
     // ......
   },
 };
